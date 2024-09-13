@@ -2,3 +2,38 @@
 // Custom style
 // 自定义样式
 // ==============================
+
+// copyright
+article .post-copyright ul {
+    list-style: none;
+    overflow: hidden;
+    padding: 0.5em 1em;
+    position: relative;
+    border-left: 3px solid #ff2a2a;
+    margin: 1em 0 0;
+
+    background-color: rgba(#ddd, .2);
+
+    [data-theme='dark'] & {
+        background-color: rgba(#666, .2);
+    }
+
+    a, a::before, a::after {
+        text-decoration: none;
+
+        color: $single-link-color;
+
+        [data-theme='dark'] & {
+            color: $single-link-color-dark;
+        }
+    }
+
+    a:active,
+    a:hover {
+        color: $single-link-hover-color;
+
+        [data-theme='dark'] & {
+            color: $single-link-hover-color-dark;
+        }
+    }
+}

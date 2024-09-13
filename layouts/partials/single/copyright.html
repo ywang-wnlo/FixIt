@@ -1,0 +1,21 @@
+{{- $params := .Scratch.Get "params" -}}
+{{- $author := partial "function/get-author-map.html" .Params.author -}}
+
+{{ if or .Params.copyright (and .Site.Params.footer.copyright (ne .Params.copyright false)) -}}
+<div class="post-copyright">
+    <ul>
+        <li class="post-copyright-author">
+            <strong>本文作者：</strong>
+            {{ $author.name | default .Site.Params.author.name }}
+        </li>
+        <li class="post-copyright-link">
+            <strong>本文链接：</strong>
+            <a href="{{ .Permalink }}" title="{{ $params.title }}">{{ .Permalink }}</a>
+        </li>
+        <li class="post-copyright-license">
+            <strong>版权声明：</strong>
+            本博客所有文章除特别声明外，均采用 {{ .Site.Params.footer.license | safeHTML }} 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+{{- end }}
